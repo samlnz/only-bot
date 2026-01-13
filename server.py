@@ -1,3 +1,9 @@
+import sys
+
+# Check if we're in build mode
+if os.environ.get('RAILWAY_BUILD') or len(sys.argv) > 1 and sys.argv[1] == 'build':
+    print("Build mode detected, exiting gracefully")
+    sys.exit(0)
 # In server.py, update the telegram bot section
 import threading
 from telegram import Bot
