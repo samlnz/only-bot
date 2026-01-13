@@ -1,0 +1,13 @@
+[phases.setup]
+cmds = [
+    "cd frontend && npm ci",
+    "cd frontend && npm run build",
+    "cp -r frontend/dist/* backend/static/",
+    "cd backend && pip install -r requirements.txt"
+]
+
+[start]
+cmd = "cd backend && gunicorn server:app --workers=2 --threads=4 --bind=0.0.0.0:$PORT --timeout=120"
+
+[[providers]]
+id = "railway"
