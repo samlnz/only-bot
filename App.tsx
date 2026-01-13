@@ -7,7 +7,7 @@ import GamePage from './pages/GamePage';
 import WinnerPage from './pages/WinnerPage';
 import { cardGenerator } from './services/cardGenerator';
 
-const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:3001' : '';
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 const App: React.FC = () => {
   const [hasEntered, setHasEntered] = useState(false);
